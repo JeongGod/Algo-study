@@ -37,7 +37,7 @@
 이효원 -> 이정규 -> 최재영 -> 이세명 -> 박제균 -> 박현준 -> 배성훈(탈주 예정)
 
 ## 문제
-[문제 모음집](https://jeonggod.notion.site/Algorithm-Study-34f1f391316442e2a619bc7b3d7f34a9)
+[문제 모음집](https://jeonggod.notion.site/Delicious-Algorithm-Study-34f1f391316442e2a619bc7b3d7f34a9)
 
 ## Commit Convention
 ```
