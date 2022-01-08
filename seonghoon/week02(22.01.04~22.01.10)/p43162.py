@@ -20,9 +20,3 @@ def solution(n: int, computers: List[List[int]]):
             check(node)
             answer += 1
     return answer
-
-
-# 2
-print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
-# 1
-print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))

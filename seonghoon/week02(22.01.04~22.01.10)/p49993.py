@@ -21,7 +21,3 @@ def learn(skill: str, skill_tree: str) -> int:
 
 def solution(skill: str, skill_trees: List[str]):
     return sum(learn(skill, x) for x in skill_trees)
-
-
-# 2
-print(solution("CBD", ["BACDE", "CBADF", "AECB", "BDA"]))

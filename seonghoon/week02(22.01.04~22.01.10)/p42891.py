@@ -25,13 +25,3 @@ def solution(food_times: List[int], k: int) -> int:
     time: int = k - sum_times(food_times, iters)
     foods: List[int] = [food for food, time in enumerate(food_times) if time > iters]
     return foods[time] + 1 if foods else -1
-
-
-# 1
-print(solution([3, 1, 2], 5))
-# 1
-print(solution([2, 2, 2], 3))
-# 2
-print(solution([2, 2, 2], 4))
-# -1
-print(solution([1, 1, 1, 1], 4))

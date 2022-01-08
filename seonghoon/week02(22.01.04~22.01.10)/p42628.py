@@ -40,17 +40,3 @@ def solution(operations: List[str]) -> List[int]:
             delete(minheap)
 
     return [-get(maxheap), get(minheap)]
-
-
-# [0,0]
-# print(solution(["I 16", "D 1"]))
-# [7,5]
-# print(solution(["I 7", "I 5", "I -5", "D -1"]))
-# [0, 0]
-# print(solution(["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]))
-# [333, -45]
-# print(
-#     solution(
-#         ["I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"]
-#     )
-# )

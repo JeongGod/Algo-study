@@ -28,9 +28,3 @@ def postorder(nodes: List[List[int]]) -> List[int]:
 def solution(nodeinfo: List[List[int]]) -> List[List[int]]:
     nodes = [[x, y, idx + 1] for idx, [x, y] in enumerate(nodeinfo)]
     return [preorder(nodes), postorder(nodes)]
-
-
-# [[7,4,6,9,1,8,5,2,3],[9,6,5,8,1,4,3,2,7]]
-print(
-    solution([[5, 3], [11, 5], [13, 3], [3, 5], [6, 1], [1, 3], [8, 6], [7, 2], [2, 2]])
-)
