@@ -25,28 +25,22 @@ def gravity() -> None:
         # 보드에 넣자.
         x = N-1
         while st:
-            val, *rest = st.pop()
+            val, idx = st.pop()
             # 만일 black 블록이면 행의 위치를 해당 부터 채워넣는걸로 변경한다.
             if val == -1:
-                x = rest[0]
+                x = idx
             board[x][y] = val
             x -= 1
 
 
-def rotate(black_pos : List) -> List:
+def rotate() -> List:
     new_board = [[0] * N for _ in range(N)]
-    # black 좌표 회전
-    for idx in range(len(black_pos)):
-        x, y = black_pos[idx]
-        black_pos[idx] = [N-1-y, x]
     # 보드 회전
     # (x, y) -> (N-1-y, x)
     for x in range(N):
         for y in range(N):
             new_board[N-1-y][x] = board[x][y]
-    # 회전된 black좌표 값 넣기
-    for x, y in black_pos:
-        new_board[x][y] = -1
+    
     return new_board
 
 def bfs(x : int, y : int) -> int:
@@ -87,18 +81,10 @@ def check(visited : Set, rainbow_cnt : int, max_block_group : Set) -> bool:
 
 def main() -> int:    
     global N, board, black_pos
-    board = []
     score = 0
     N, M = map(int, input().split())
-    black_pos = []
-    for x in range(N):
-        _list = list(map(int, input().split()))
-        board.append(_list)
-        # black 좌표
-        for y in range(N):
-            if _list[y] == "-1":
-                black_pos.append([x, y])
-    
+    board = [list(map(int, input().split())) for _ in range(N)]
+
     while True:
         visited_block = set()
         max_block_group = [set(), 0]
@@ -124,7 +110,7 @@ def main() -> int:
         # 중력
         gravity()
         # 회전
-        board = rotate(black_pos)
+        board = rotate()
         # 중력
         gravity()
         # 점수 계산
