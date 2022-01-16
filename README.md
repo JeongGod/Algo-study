@@ -36,12 +36,15 @@
 ## 문제 당번
 이효원 -> 최재영 -> 박현준  -> 박제균 -> 이세명 -> 배성훈 -> 이정규 ->
 
+## Reviewer 정하기
+[Reviewer 랜덤 뽑기](https://3people-shuffle.netlify.app/)
+
 ## 문제
 [문제 모음집](https://jeonggod.notion.site/Delicious-Algorithm-Study-34f1f391316442e2a619bc7b3d7f34a9)
 
 ## Commit Convention
 ```
-[1주차] {내 이름}
+[n주차] {내 이름}
 # [1주차] 이정규
 
 {문제이름들 적기}
