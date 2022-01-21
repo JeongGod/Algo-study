@@ -16,14 +16,12 @@ def calc(num_dq : List, oper_dq : List, oper : str) -> List:
             oper_dq.append(op)
             continue
         # 계산한다.
-        b = num_dq.popleft()
         if op == "+":
-            num_dq.appendleft(a+b)
+            num_dq[0] = a+num_dq[0]
         elif op == "*":
-            num_dq.appendleft(a*b)
+            num_dq[0] = a*num_dq[0]
         else:
-            num_dq.appendleft(a-b)
-    # oper의 개수만 계산하니, 마지막 남은 끄트머리
+            num_dq[0] = a-num_dq[0]
     num_dq.append(num_dq.popleft())
 
     return num_dq, oper_dq
