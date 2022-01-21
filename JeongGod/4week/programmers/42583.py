@@ -2,7 +2,6 @@ from collections import deque
 
 
 def solution(bridge_length, weight, truck_weights):
-    # 시작 시간은 1초부터 시작
     answer = 0
     """
     truck_weights의 순서대로 트럭이 지나간다.
@@ -10,7 +9,6 @@ def solution(bridge_length, weight, truck_weights):
     weight만큼 무게를 견딘다.
     bridge_length초 : 다리 건넘
     """
-    # 처음 트럭을 다리에 놓는다.
     bridge = deque([])
     idx = 0
     cur_weight = 0
