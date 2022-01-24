@@ -18,5 +18,5 @@ def solution(begin, target, words):
           continue
         visited[i] = 1
         s.append(words[i])
-  answer += 1
+    answer += 1
   return answer
