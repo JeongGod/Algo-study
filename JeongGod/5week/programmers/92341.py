@@ -26,15 +26,15 @@ def solution(fees, records):
             target = cars.get(car)
             # 처음 차량이 들어왔다면
             if target is None:
-                cars[car] = [hour_to_minute(time), 0, 1]
+                cars[car] = [hour_to_minute(time), 0, True]
                 continue
             # 다시 들어온다면
             target[0] = hour_to_minute(time)
-            target[2] = 1
+            target[2] = True
         else:
             target = cars.get(car)
             target[1] += hour_to_minute(time) - target[0]
-            target[2] = 0
+            target[2] = False
             
     for car in sorted(cars.keys()):
         # 출차하지 않은 경우
