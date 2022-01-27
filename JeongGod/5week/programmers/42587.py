@@ -4,7 +4,6 @@ from collections import deque
 def solution(priorities, location):
     """
     중요도를 갖고 있는 배열이 존재해야한다.
-    100개이하의 문서. => O(n^2) 가능
     정렬해서 가자.
     """
     order = sorted(priorities, reverse=True)
