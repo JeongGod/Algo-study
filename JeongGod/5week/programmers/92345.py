@@ -26,7 +26,7 @@ def dfs(x, y, other_x, other_y):
             # 해당 플레이어는 승리하는 친구다.
             canwin = True
             win = min(turn, win)
-        else:
+        elif not canwin:
             # 해당 플레이어는 패배하는 친구다.
             lose = max(turn, lose)
             
