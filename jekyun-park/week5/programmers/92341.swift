@@ -12,12 +12,10 @@ func solution(_ fees: [Int], _ records: [String]) -> [Int] {
     var timeRecord: [String: [[String]]] = [:]
     var feeDictionary: [String:Int] = [:]
 
-
     for record in records {
         let log = record.split(separator: " ")
         let time = String(log[0])
         let car = String(log[1])
-//        let inOut = log[2]
 
         if timeRecord[car] == nil {
             timeRecord[car] = []
@@ -37,8 +35,6 @@ func solution(_ fees: [Int], _ records: [String]) -> [Int] {
         }
     }
     
-    
-    
     for car in timeRecord {
         var sum = 0
         timeRecord[car.key]!.forEach {
@@ -52,9 +48,6 @@ func solution(_ fees: [Int], _ records: [String]) -> [Int] {
 
     return answer
 }
-
-
-
 
 func calculateFee(_ parkTime: Int, _ fees: [Int]) -> Int {
     
@@ -77,9 +70,3 @@ func calculateTime(_ x: String, _ y: String) -> Int {
 
     return (yHourToMinute + yMinute) - (xHourToMinute + xMinute)
 }
-
-//print(calculateTime("18:59", "23:59"))
-
-print(solution([180, 5000, 10, 600], ["05:34 5961 IN", "06:00 0000 IN", "06:34 0000 OUT", "07:59 5961 OUT", "07:59 0148 IN", "18:59 0000 IN", "19:09 0148 OUT", "22:59 5961 IN", "23:00 5961 OUT"]))
-
-//print(solution([120, 0, 60, 591], ["16:00 3961 IN", "16:00 0202 IN", "18:00 3961 OUT", "18:00 0202 OUT", "23:58 3961 IN"]))
