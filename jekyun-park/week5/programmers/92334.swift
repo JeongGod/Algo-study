@@ -11,10 +11,9 @@ func solution(_ id_list: [String], _ report: [String], _ k: Int) -> [Int] {
 
     var countDictionary: [String: Set<String>] = [:]
     var reportDictionary: [String: [String]] = [:]
-    var banlist : [String] = []
     var answer: [Int] = []
     
-    id_list.map {
+    id_list.forEach {
         countDictionary[$0] = []
         reportDictionary[$0] = []
     }
@@ -24,13 +23,12 @@ func solution(_ id_list: [String], _ report: [String], _ k: Int) -> [Int] {
         let reporter = String(splitted[0])
         let banned = String(splitted[1])
         countDictionary[banned]!.insert(reporter)
-        if countDictionary[banned]!.count >= k { banlist.append(banned)}
         if !reportDictionary[reporter]!.contains(banned) {
             reportDictionary[reporter]?.append(banned)
         }
     }
 
-    id_list.map { answer.append((reportDictionary[$0]?.filter { countDictionary[$0]!.count >= k }.count)! ) }
+    id_list.forEach { answer.append((reportDictionary[$0]?.filter { countDictionary[$0]!.count >= k }.count)! ) }
     
     return answer
 }
