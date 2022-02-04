@@ -15,9 +15,10 @@ def solution(bridge_length, weight, truck_weights):
         else:
             BridgeState[-1] = 0   
             
-    for i in range(bridge_length-1, -1 ,-1):
-        if(BridgeState[i] != 0):
-            answer += i + 1
-            break
+    # for i in range(bridge_length-1, -1 ,-1):
+    #     if(BridgeState[i] != 0):
+    #         answer += i + 1
+    #         break
+    answer += bridge_length
             
     return answer
