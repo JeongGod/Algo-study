@@ -21,12 +21,14 @@ def bfs(x : int, y : int) -> int:
         cx, cy, cost, go = dq.popleft()
 
         for i in range(4):
-            # 직선이거나 처음시작이라면
+            
             nx, ny = cx + dx[i], cy + dy[i]
             if not check(nx, ny):
                 continue
+            # 직선이거나 처음시작이라면
             if i == go or go == 5:
                 new_cost = cost + 100
+            # 코너라면
             else:
                 new_cost = cost + 600
             # 최소값으로 이동하자.

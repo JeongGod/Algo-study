@@ -3,16 +3,10 @@ from collections import defaultdict
 
 def solution(info, query):
     """
-    java, python, cpp, - => 4가지
-    backend, frontend, - => 3가지
-    junior, senior, - => 3가지
-    pizza, chicken, - => 3가지
+    (선택, -) 2가지 => 2^4가지
     
-    (선택, -) 2가지 => 8가지
-    
-    5만 * 8 = 40만
+    5만 * 16 = 80만
     info -> query에 맞는 친구를 찾아준다.
-    O(50만)
     """
     answer = []
     def dfs(user_info):
