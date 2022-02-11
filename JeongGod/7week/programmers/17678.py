@@ -13,7 +13,7 @@ def find_last_person(n : int, m : int, t : int, mtimetable : List[int]) -> int:
     cur = hour_to_min("09:00")
     person_idx = 0
     # 셔틀버스 이전에 사람들을 센다.
-    for num in range(n):
+    for _ in range(n):
         shuttle_cnt = 0
         while shuttle_cnt < m:
             if person_idx == len(mtimetable):
@@ -26,7 +26,6 @@ def find_last_person(n : int, m : int, t : int, mtimetable : List[int]) -> int:
         cur += t
     return person_idx-1, m - shuttle_cnt
 def solution(n : int, t : int, m : int, timetable : List[str]):
-    answer = ''
     # timetable sort
     mtimetable = sorted(list(map(lambda x: hour_to_min(x), timetable)))
     
