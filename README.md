@@ -34,7 +34,7 @@
 3. 다음 주 월요일날 실시간 리뷰하기
 
 ## 문제 당번 및 Reviewer 정하기
-[Reviewer 랜덤 뽑기](https://3people-shuffle.netlify.app/)
+[문제 당번 및 Reviewer 랜덤 뽑기](https://3people-shuffle.netlify.app/)
 
 ## 문제
 [문제 모음집](https://jeonggod.notion.site/Delicious-Algorithm-Study-34f1f391316442e2a619bc7b3d7f34a9)
