@@ -23,8 +23,13 @@
   <a href="https://github.com/chlwodud77">
       <img src="https://github.com/chlwodud77.png/" width="100">
   </a>
+  
+</div>
+
+## 졸업생
+<div align="center">
   <a href="https://github.com/baesh3744">
-      <img src="https://github.com/baesh3744.png/" width="100">
+      <img src="https://github.com/baesh3744.png/" width="100" style="filter: blur(2px) opacity(0.5) drop-shadow(0 0 0 black);">
   </a>
 </div>
 
