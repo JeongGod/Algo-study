@@ -1,20 +1,45 @@
-import re
+import bisect
 
 
-def solution(info, queries):
+def solution(info, query):
     answer = []
 
-    for query in queries:
-        regex = '.*'
-        query = re.split(' and | ', query)
-        for elm in query[:-1]:
-            if elm != '-':
-                regex += elm + ' .*'
+    lang = ['cpp', 'java', 'python', '-']
+    pos = ['backend', 'frontend', '-']
+    career = ['junior', 'senior', '-']
+    food = ['chicken', 'pizza', '-']
 
-        cnt = 0
-        for person in info:
-            if re.match(regex, person) and person[-3:] >= query[-1]:
-                cnt += 1
-        answer.append(cnt)
+    tables = {}
+    for a in lang:
+        for b in pos:
+            for c in career:
+                for d in food:
+                    tmp = a + b + c + d
+                    tables[tmp] = []
+
+    for candidate in info:
+        string = candidate.split(' ')
+        lang = [string[0], '-']
+        pos = [string[1], '-']
+        career = [string[2], '-']
+        food = [string[3], '-']
+
+        for a in lang:
+            for b in pos:
+                for c in career:
+                    for d in food:
+                        key = a + b + c + d
+                        tables[key].append(int(string[4]))
+
+    for key, value in tables.items():
+        tables[key] = sorted(value)
+
+    for candidate in query:
+        candi, score = candidate.replace(' and ', '').split(' ')
+        score = int(score)
+        size = len(tables[candi])
+        num = size - bisect.bisect_left(tables[candi], score, lo=0, hi=size)
+
+        answer.append(num)
 
     return answer
