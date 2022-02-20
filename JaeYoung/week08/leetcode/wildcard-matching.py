@@ -1,30 +1,21 @@
-from typing import List
+class Solution(object):
+    def isMatch(self, s, p):
+        dp = [[False] * (len(p)+1) for j in range(len(s)+1)]
+        
+        dp[0][0] = True
 
- # 투 포인터를 최대로 이동
+        s = "!" + s
+        p = "!" + p
 
-class Solution:
+        for j in range(1, len(dp[0])):
+            if p[j] == "*":
+                dp[0][j] = dp[0][j-1]
 
-    def trap(self, height: List[int]) -> int:
-        if not height:
-            return 0
+        for i in range(1, len(dp)):
+            for j in range(1, len(dp[0])):
+                if s[i] == p[j] or p[j] == "?":
+                    dp[i][j] = dp[i-1][j-1]
+                elif p[j] == "*":
+                    dp[i][j] = (dp[i-1][j-1] or dp[i][j-1] or dp[i-1][j])
 
-        water = 0
-
-        left = 0
-        right = len(height) - 1
-        left_max = height[0]
-        right_max = height[right]
-
-        while left < right:
-            left_max = max(left_max, height[left])
-            right_max = max(right_max, height[right])
-
-            # 더 높은 쪽을 향해 투 포인터 이동
-            if left_max <= right_max:
-                water += left_max - height[left]
-                left += 1
-            else:
-                water += right_max - height[right]
-                right -= 1
-
-        return water
+        return dp[-1][-1]
