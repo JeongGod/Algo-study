@@ -1,30 +1,31 @@
+from copy import deepcopy
 from collections import deque
+from itertools import combinations
 
 
-def solution(relations):
-    answer = []
-    targets = deque()
-    targets.append([i for i in range(len(relations[0]))])
+def solution(relation):
+    answer = 0
+    comb = deque()
+    column_length = len(relation[0])
 
-    while targets:
-        check = 0
-        target = targets.popleft()
-        for i in range(len(target)):
-            sum_list = []
-            for leng in range(len(relations)):
-                copy_target = target.copy()
-                copy_target.remove(target[i])
-                tuple_sum = ''
-                for key_idx in copy_target:
-                    tuple_sum += relations[leng][key_idx]
-                sum_list.append(tuple_sum)
+    key_idx = [i for i in range(column_length)]
+    for i in range(1, column_length):
+        comb.extend(combinations(key_idx, i))
 
-            if (len(set(sum_list)) == len(sum_list)) and (copy_target not in targets):
-                targets.append(copy_target)
-            elif (len(set(sum_list)) != len(sum_list)):
-                check += 1
+    while comb:
+        target = comb.popleft()
+        check_tuple = set()
+        for elm in relation:
+            tuple_sum = ''
+            for idx in target:
+                tuple_sum += elm[idx]
+            check_tuple.add(tuple_sum)
 
-        if check == len(target):
-            answer.append(target)
+        copy_comb = deepcopy(comb)
+        if len(check_tuple) == len(relation):
+            answer += 1
+            for idx, elm in enumerate(copy_comb):
+                if set(target).issubset(elm):
+                    comb.remove(elm)
 
-    return len(answer)
+    return answer
