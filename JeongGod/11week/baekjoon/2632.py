@@ -53,7 +53,9 @@ def solution(target : int, m : int, n : int, pizza_a : list[int], pizza_b : list
     dp_b = make_dp(pizza_b)
 
     new_a = [v for arr in dp_a for v in arr if v != 0]
+    # A피자에 완성된 누적합이 있을 경우
     answer += new_a.count(target)
+    # B피자에 완성된 누적합이 있을 경우
     new_a.append(0)
     new_b = sorted([v for arr in dp_b for v in arr if v != 0])
 
@@ -61,8 +63,11 @@ def solution(target : int, m : int, n : int, pizza_a : list[int], pizza_b : list
         new_target = target - val
         if new_target <= 0:
             continue
+        # target중 가장 왼쪽에 있는 친구를 찾는다.
         l_idx = binary_search_left(new_target, new_b)
+        # target중 가장 오른쪽에 있는 친구를 찾는다.
         r_idx = binary_search_right(new_target, new_b)
+
         if not (0 <= l_idx < len(new_b)):
             continue
         if new_b[l_idx] == new_target:
