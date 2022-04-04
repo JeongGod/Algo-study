@@ -14,9 +14,6 @@
   <a href="https://github.com/jekyun-park">
       <img src="https://github.com/jekyun-park.png/" width="100">
   </a>
-  <a href="https://github.com/3people">
-      <img src="https://github.com/3people.png/" width="100">
-  </a>
   <a href="https://github.com/leehyowonzero">
       <img src="https://github.com/leehyowonzero.png/" width="100">
   </a>
@@ -30,6 +27,9 @@
   </a>
   <a href="https://github.com/chlwodud77">
       <img src="https://github.com/chlwodud77.png/" width="100">
+  </a>
+  <a href="https://github.com/3people">
+      <img src="https://github.com/3people.png/" width="100">
   </a>
 </div>
 
