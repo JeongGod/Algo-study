@@ -4,7 +4,7 @@ from collections import deque
 sys.setrecursionlimit(10000000)
 
 def go(node):
-    a = True
+    # 방문해야하는 노드인지 확인한다.
     b = check.get(node)
     # 일반 노드일 경우
     if b is None:
@@ -20,6 +20,7 @@ def go(node):
         # 순환 체크
         b[0] = True
         b[1] = True
+        # 같은 서브트리내에 있는지 & 지금 뚫으러 가야하는 곳
         result = go(parent[node]) & go(b[2])
         b[0] = False
         return result
@@ -61,6 +62,7 @@ def solution(n, path, order):
     tmp = [False] * n
     tmp[0] = True
     
+    # 각 부모노드를 찾기 위함.
     dq = deque([(0, 0)])
     while dq:
         p, cur = dq.popleft()
